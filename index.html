@@ -1,0 +1,495 @@
+<!--
+  PAGE COMING SOON - lafinanceinclusive.org
+  
+  CONFIGURATION FORMSPREE:
+  1. Créer un compte gratuit sur https://formspree.io
+  2. Créer un nouveau formulaire et copier l'ID (ex: YOUR_FORMSPREE_ID)
+  3. Remplacer "YOUR_FORMSPREE_ID" à la ligne 260 par votre vrai ID
+     Exemple: https://formspree.io/f/mkkpzedr
+  4. Sauvegarder et déployer
+  
+  Les emails s'afficheront directement dans votre tableau de bord Formspree.
+-->
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>lafinanceinclusive.org — Bientôt disponible</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+      color: #ffffff;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+
+    .container {
+      max-width: 600px;
+      width: 100%;
+      text-align: center;
+    }
+
+    /* LOGO */
+    .logo {
+      font-size: 14px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 3rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+    }
+
+    .logo-dot {
+      width: 8px;
+      height: 8px;
+      background: #e62b1e;
+      border-radius: 50%;
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+      50% {
+        opacity: 0.5;
+        transform: scale(1.2);
+      }
+    }
+
+    /* ICON */
+    .icon {
+      width: 80px;
+      height: 80px;
+      margin: 0 auto 2rem;
+      background: rgba(230, 43, 30, 0.1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 2px solid #e62b1e;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    .icon svg {
+      width: 40px;
+      height: 40px;
+    }
+
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0px);
+      }
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+
+    /* HEADING */
+    h1 {
+      font-size: 48px;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      line-height: 1.2;
+      letter-spacing: -0.5px;
+    }
+
+    .highlight {
+      color: #e62b1e;
+    }
+
+    /* DESCRIPTION */
+    .description {
+      font-size: 16px;
+      color: #cccccc;
+      margin-bottom: 2rem;
+      line-height: 1.6;
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .features {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-bottom: 3rem;
+      flex-wrap: wrap;
+    }
+
+    .feature {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: #999999;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .feature::before {
+      content: '';
+      width: 4px;
+      height: 4px;
+      background: #e62b1e;
+      border-radius: 50%;
+      display: block;
+    }
+
+    /* FORM */
+    .newsletter-form {
+      display: flex;
+      gap: 0.5rem;
+      margin-bottom: 3rem;
+      flex-direction: column;
+    }
+
+    .form-row {
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    .newsletter-form input {
+      flex: 1;
+      padding: 14px 16px;
+      font-size: 14px;
+      border: 1px solid #333333;
+      background: rgba(255, 255, 255, 0.05);
+      color: #ffffff;
+      border-radius: 2px;
+      transition: all 0.3s;
+    }
+
+    .newsletter-form input::placeholder {
+      color: #666666;
+    }
+
+    .newsletter-form input:focus {
+      outline: none;
+      border-color: #e62b1e;
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .newsletter-form button {
+      padding: 14px 32px;
+      background: #e62b1e;
+      color: #ffffff;
+      border: none;
+      font-size: 14px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      cursor: pointer;
+      border-radius: 2px;
+      transition: all 0.3s;
+      white-space: nowrap;
+    }
+
+    .newsletter-form button:hover {
+      background: #c01f16;
+      transform: translateY(-2px);
+    }
+
+    .newsletter-form button:active {
+      transform: translateY(0);
+    }
+
+    .form-message {
+      font-size: 12px;
+      color: #999999;
+      margin-top: 1rem;
+    }
+
+    .form-message.success {
+      color: #4ade80;
+    }
+
+    .form-message.error {
+      color: #f87171;
+    }
+
+    /* COUNTDOWN / PROGRESS */
+    .progress-bar {
+      width: 100%;
+      height: 3px;
+      background: #222222;
+      margin-bottom: 3rem;
+      border-radius: 2px;
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      height: 100%;
+      background: #e62b1e;
+      width: 35%;
+      animation: grow 2s ease-out;
+    }
+
+    @keyframes grow {
+      from {
+        width: 0;
+      }
+      to {
+        width: 35%;
+      }
+    }
+
+    /* FOOTER */
+    .footer {
+      border-top: 1px solid #222222;
+      padding-top: 2rem;
+      font-size: 12px;
+      color: #666666;
+    }
+
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .social-links a {
+      color: #999999;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .social-links a:hover {
+      color: #e62b1e;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 36px;
+      }
+
+      .description {
+        font-size: 15px;
+      }
+
+      .features {
+        gap: 1rem;
+        justify-content: center;
+      }
+
+      .form-row {
+        flex-direction: column;
+      }
+
+      .newsletter-form button {
+        width: 100%;
+      }
+    }
+
+    /* TOAST NOTIFICATION */
+    .toast {
+      position: fixed;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%) translateY(120px);
+      background: rgba(30, 30, 30, 0.95);
+      border: 1px solid #333333;
+      border-left: 3px solid #e62b1e;
+      padding: 1rem 1.5rem;
+      border-radius: 2px;
+      font-size: 13px;
+      color: #ffffff;
+      transition: transform 0.3s;
+      z-index: 1000;
+      max-width: 400px;
+    }
+
+    .toast.show {
+      transform: translateX(-50%) translateY(0);
+    }
+
+    .toast.success {
+      border-left-color: #4ade80;
+    }
+
+    .toast.error {
+      border-left-color: #f87171;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    
+    <!-- LOGO -->
+    <div class="logo">
+      <span>lafinanceinclusive.org</span>
+      <div class="logo-dot"></div>
+    </div>
+
+    <!-- ICON -->
+    <div class="icon">
+      <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <rect width="100" height="100" fill="none"/>
+        <path d="M 30 70 L 50 30 L 70 60 L 80 50" stroke="#e62b1e" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        <circle cx="50" cy="30" r="3" fill="#e62b1e"/>
+        <circle cx="70" cy="60" r="3" fill="#e62b1e"/>
+        <circle cx="80" cy="50" r="3" fill="#e62b1e"/>
+      </svg>
+    </div>
+
+    <!-- HEADING -->
+    <h1>
+      Observatoire de la <span class="highlight">finance inclusive</span>
+    </h1>
+
+    <!-- DESCRIPTION -->
+    <p class="description">
+      L'observatoire le plus complet sur la finance inclusive en Afrique francophone. Analyses, données et insights exclusifs.
+    </p>
+
+    <!-- FEATURES -->
+    <div class="features">
+      <div class="feature">Articles exclusifs</div>
+      <div class="feature">Veille active</div>
+      <div class="feature">Ressources</div>
+    </div>
+
+    <!-- PROGRESS BAR -->
+    <div class="progress-bar">
+      <div class="progress-fill"></div>
+    </div>
+
+    <!-- FORM -->
+    <form class="newsletter-form" id="newsletterForm" action="https://formspree.io/f/moevyvlj" method="POST">
+      <div class="form-row">
+        <input 
+          type="email" 
+          name="email"
+          id="emailInput" 
+          placeholder="Votre adresse email"
+          required
+          autocomplete="email"
+        >
+        <button type="submit">
+          S'inscrire
+        </button>
+      </div>
+      <div class="form-message" id="formMessage"></div>
+    </form>
+
+    <!-- FOOTER -->
+    <div class="footer">
+      <div class="social-links">
+        <a href="https://linkedin.com" target="_blank">LinkedIn</a>
+        <a href="https://twitter.com" target="_blank">Twitter</a>
+        <a href="https://youtube.com" target="_blank">YouTube</a>
+      </div>
+      <p>
+        Lancement prévue fin 2026 • Vous serez les premiers informés
+      </p>
+    </div>
+
+  </div>
+
+  <!-- TOAST NOTIFICATION -->
+  <div class="toast" id="toast"></div>
+
+  <script>
+    // Form handling with Formspree
+    const form = document.getElementById('newsletterForm');
+    const emailInput = document.getElementById('emailInput');
+    const formMessage = document.getElementById('formMessage');
+    const toast = document.getElementById('toast');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      
+      const email = emailInput.value.trim();
+      
+      // Validation simple
+      if (!email || !email.includes('@')) {
+        showMessage('Veuillez entrer une adresse email valide', 'error');
+        showToast('Email invalide', 'error');
+        return;
+      }
+
+      try {
+        // Désactiver le bouton durant l'envoi
+        const button = form.querySelector('button[type="submit"]');
+        const originalText = button.textContent;
+        button.disabled = true;
+        button.textContent = 'Envoi...';
+
+        // Envoyer via Formspree
+        const response = await fetch(form.action, {
+          method: 'POST',
+          body: new FormData(form),
+          headers: {
+            'Accept': 'application/json'
+          }
+        });
+
+        if (response.ok) {
+          showMessage('✓ Merci ! Vérifiez votre email', 'success');
+          showToast('Inscription réussie !', 'success');
+          emailInput.value = '';
+          button.textContent = 'Inscrit ✓';
+        } else {
+          showMessage('Une erreur s\'est produite. Réessayez.', 'error');
+          showToast('Erreur lors de l\'inscription', 'error');
+          button.disabled = false;
+          button.textContent = originalText;
+        }
+        
+      } catch (error) {
+        showMessage('Une erreur s\'est produite. Réessayez.', 'error');
+        showToast('Erreur lors de l\'inscription', 'error');
+        console.error('Error:', error);
+        
+        const button = form.querySelector('button[type="submit"]');
+        button.disabled = false;
+        button.textContent = 'S\'inscrire';
+      }
+    });
+
+    function showMessage(message, type = 'info') {
+      formMessage.textContent = message;
+      formMessage.className = `form-message ${type}`;
+    }
+
+    function showToast(message, type = 'info') {
+      toast.textContent = message;
+      toast.className = `toast ${type} show`;
+      
+      setTimeout(() => {
+        toast.classList.remove('show');
+      }, 4000);
+    }
+
+    // Email input validation on blur
+    emailInput.addEventListener('blur', (e) => {
+      const email = e.target.value.trim();
+      if (email && !email.includes('@')) {
+        showMessage('Format email invalide', 'error');
+      } else if (email) {
+        showMessage('');
+      }
+    });
+  </script>
+
+</body>
+</html>
