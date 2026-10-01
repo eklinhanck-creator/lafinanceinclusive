@@ -40,7 +40,33 @@
       width: 100%;
       text-align: center;
     }
+html, body {
+  height: 100vh;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+}
 
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 40px 20px;
+  overflow: hidden;
+}
+
+footer {
+  flex-shrink: 0;
+  padding: 20px;
+  text-align: center;
+}
     /* LOGO */
     .logo {
       font-size: 14px;
@@ -490,6 +516,6 @@
       }
     });
   </script>
-
+"Fix: make page fit viewport height"
 </body>
 </html>
