@@ -26,8 +26,8 @@
     }
 
     html, body {
-      height: 100vh;
-      overflow: hidden;
+      min-height: 100vh;
+      overflow-x: hidden;
       margin: 0;
       padding: 0;
     }
@@ -47,7 +47,6 @@
       flex-direction: column;
       justify-content: center;
       padding: 40px 20px;
-      overflow: hidden;
     }
 
     footer {
@@ -260,6 +259,25 @@
       transform: translateY(0);
     }
 
+    .form-consent {
+      font-size: 11px;
+      line-height: 1.5;
+      color: #888888;
+      text-align: left;
+      margin-top: 0.5rem;
+    }
+
+    .form-consent a,
+    .legal-link {
+      color: #999999;
+      text-decoration: underline;
+    }
+
+    .form-consent a:hover,
+    .legal-link:hover {
+      color: #e62b1e;
+    }
+
     .form-message {
       font-size: 12px;
       color: #999999;
@@ -425,6 +443,11 @@
             S'inscrire
           </button>
         </div>
+        <p class="form-consent">
+          En vous inscrivant, vous acceptez de recevoir des informations sur le lancement de lafinanceinclusive.org et notre newsletter.
+          Votre adresse email est traitée par Manitou Conseils. Vous pouvez vous désinscrire à tout moment.
+          <a href="confidentialite.html">Politique de confidentialité</a>
+        </p>
         <div class="form-message" id="formMessage"></div>
       </form>
 
@@ -441,6 +464,10 @@
         <a href="https://twitter.com" target="_blank">Twitter</a>
         <a href="https://youtube.com" target="_blank">YouTube</a>
       </div>
+
+      <p class="form-consent" style="text-align:center">
+        <a class="legal-link" href="confidentialite.html">Politique de confidentialité</a>
+      </p>
     </div>
   </footer>
 
